@@ -11,6 +11,34 @@ const firebaseConfig = {
   messagingSenderId: "1039328418565",
   appId: "1:1039328418565:web:b4af8688df40514931756c",
 };
+
+export const createUserProfileDocument = async (userAuth, additionaldata) => {
+  //passed 2 arg i.e 1-the user obj we are getting from firebase and 2-is for signup functionality
+  //we will only save data when user is signed in
+  if (!userAuth) {
+    return;
+  }
+
+  const userRef = firestore.doc(`users/${userAuth.uid}`); //whether the user exist in our database or not??
+  const snapShot = await userRef.get();
+  // console.log(snapShot);
+  if (!snapShot.exists) {
+    //if user doesnot exist create data in database
+    const { displayName, email } = userAuth;
+    const createdAt = new Date();
+    try {
+      await userRef.set({
+        displayName,
+        email,
+        createdAt,
+        ...additionaldata,
+      });
+    } catch (err) {
+      alert("something went wrong" + err.message);
+    }
+  }
+  return userRef;
+};
 firebase.initializeApp(firebaseConfig);
 
 export const auth = firebase.auth();

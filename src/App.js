@@ -8,15 +8,25 @@ import Homepage from "./Pages/Homepage/Homepage";
 import Board_Page from "./Pages/Create_Board_Page/Board_Page";
 import MyBoard from "./Pages/Individual_Board_Page/MyBoard";
 import SignIn_SignUp_Form from "./Components/SignIn_SignUp_Form/SignIn_SignUp";
-import { auth } from "./Firebase/firebase.utils"; //so that our appn listens to user state changes from firebase
+import { auth, createUserProfileDocument } from "./Firebase/firebase.utils"; //so that our appn listens to user state changes from firebase
 
 const App = () => {
-  const [currentUser, serCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
   let unSubscribeFromAuth = null;
   useEffect(() => {
-    unSubscribeFromAuth = auth.onAuthStateChanged((user) => {
-      serCurrentUser(user);
-      console.log(user);
+    unSubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+      // setCurrentUser(user);
+      // createUserProfileDocument(user);
+      // console.log(user);
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+        userRef.onSnapshot((snapShot) => {
+          // console.log(snapShot.data());
+          setCurrentUser({ id: snapShot.id, ...snapShot.data() });
+        });
+      } else {
+        setCurrentUser(userAuth);
+      }
     });
     return () => {
       console.log("it works as component will unmount.");
