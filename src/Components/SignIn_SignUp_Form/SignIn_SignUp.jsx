@@ -1,6 +1,6 @@
 import React from "react";
 import "./SignIn_SignUp.scss";
-
+import { signInWithGoogle } from "../../Firebase/firebase.utils";
 const SignIn_SignUp = () => {
   let SignUpbtn = () => {
     let x = document.getElementById("SignIn");
@@ -58,8 +58,8 @@ const SignIn_SignUp = () => {
           </div>
           <button type="submit">Login</button>
           <div style={{ margin: "auto" }}>or</div>
-          <button type="submit" className="googlebtn">
-            google{" "}
+          <button onClick={signInWithGoogle} className="googlebtn">
+            Google{" "}
             <i
               style={{ padding: "2px 3px" }}
               class="fab fa-google-plus-square"

@@ -1,7 +1,11 @@
 import React from "react";
 import Style from "./NavBar.module.scss";
 import { Link, NavLink } from "react-router-dom";
-const NavBar = () => {
+import { auth } from "../../Firebase/firebase.utils";
+const NavBar = ({ currentUser }) => {
+  let handleSignOut = () => {
+    auth.signOut();
+  };
   return (
     <div className={Style.container}>
       <h2 className={Style.brand}>
@@ -18,9 +22,7 @@ const NavBar = () => {
           activeClassName={Style.active}
           style={{ textDecoration: "none" }}
         >
-          <li className={Style.item1}>
-            Home
-          </li>
+          <li className={Style.item1}>Home</li>
         </NavLink>
         <NavLink
           to="/createboard"
@@ -29,13 +31,18 @@ const NavBar = () => {
         >
           <li>Create a board</li>
         </NavLink>
-        <NavLink
-          to="/signin"
-          activeClassName={Style.active}
-          style={{ textDecoration: "none" }}
-        >
-          <li>SignIn</li>
-        </NavLink>
+        {currentUser ? (
+          <li onClick={handleSignOut}>Sign Out</li>
+        ) : (
+          <NavLink
+            to="/signin"
+            exact
+            activeClassName={Style.active}
+            style={{ textDecoration: "none" }}
+          >
+            <li className={Style.item1}>Sign In</li>
+          </NavLink>
+        )}
       </ul>
     </div>
   );
