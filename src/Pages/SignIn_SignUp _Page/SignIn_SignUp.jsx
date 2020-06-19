@@ -71,7 +71,7 @@ const SignIn_SignUp = () => {
     e.preventDefault();
     try {
       await auth.signInWithEmailAndPassword(email, password);
-         reDirectToHome();
+      reDirectToHome();
       Swal(
         <div
           style={{
@@ -159,7 +159,14 @@ const SignIn_SignUp = () => {
           <button className="buttonss" type="submit">
             Login
           </button>
-          <div style={{ margin: "auto" }}>or</div>
+          <div
+            style={{
+              margin: "auto",
+            }}
+            className='or'
+          >
+            or{" "}
+          </div>
           <button onClick={signInWithGoogle} className="googlebtn ">
             Google{" "}
             <i

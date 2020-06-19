@@ -36,7 +36,7 @@
         transition: 0.5s;
       }
       .toggle_btn {
-        padding: 10px 30px;//change it
+        padding: 10px 30px;
         cursor: pointer;
         background-color: transparent;
         border: none;
@@ -122,11 +122,17 @@
   }
 }
 @media only screen and (max-width: 786px) {
-.formContainer {
-  border:none!important;
-}
-.buttonss,.googlebtn{
-  margin:0!important;
-  margin-right:20px;
-}
+  .formContainer {
+    border: none !important;
+  }
+  .buttonss,
+  .googlebtn {
+    margin: 0 !important;
+    margin-right: 7px;
+  }
+  .or {
+    display: "flex";
+    justify-content: "center";
+    margin-right: 160px !important;
+  }
 }
