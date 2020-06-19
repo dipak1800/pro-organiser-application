@@ -10,13 +10,13 @@
   position: absolute;
   display: flex;
   justify-content: center;
-align-items: center;
+  align-items: center;
   .formContainer {
     width: 420px;
     height: 480px;
     position: relative;
     background-color: #fff;
-    border: 1px solid black;
+    border: 1px solid gray;
     padding: 5px;
     overflow: hidden;
     .buttonBox {
@@ -46,7 +46,8 @@ align-items: center;
     }
   }
 }
-form {
+#SignIn,
+#SignUp {
   top: 120px;
   width: 300px;
   position: absolute;
@@ -61,7 +62,7 @@ form {
     background-color: transparent;
   }
 
-  button {
+  .buttonss {
     background-image: linear-gradient(to right, #f97f51 0%, #f9d423 100%);
     outline: none;
     border: 0;
@@ -87,7 +88,7 @@ form {
   .inputcheck {
     cursor: pointer;
   }
-  span {
+  .span {
     color: #777;
     font-size: 12px;
     margin: 0 10px;
@@ -109,4 +110,19 @@ form {
   display: block;
   margin: auto;
   border-radius: 30px;
+  color: whitesmoke;
+  transition: all 0.5s ease;
+  &:hover {
+    background-image: none !important;
+    background-color: rgba(44, 130, 201, 0.9);
+    color: black;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+@media only screen and (max-width: 786px) {
+.formContainer {
+  border:none!important;
+}
 }

@@ -12,13 +12,13 @@ const Homepage = () => {
       .get("https://pro-organizer-app-8f3bf.firebaseio.com/BoardData.json")
       .then((response) => {
         // console.log(Object.entries(response.data));
+        setPreLoader(true);
         setBoardsData(response.data);
         boardsData == null ? setShowBoards(false) : setShowBoards(true);
       })
       .catch((err) => {
         alert("SOMETHING WENT WRONG , " + err.message);
       });
-    setPreLoader(true);
   };
   useEffect(() => {
     getBoardsData();

@@ -4,7 +4,6 @@ import axios from "axios";
 import AddColumn from "../../Components/Add-Columns/Add_Column";
 import Board_Column from "../../Components/Board_Column/Board_Column";
 import { useHistory, useParams, useLocation } from "react-router";
-import Pre_Loader from "../../Components/Pre-Loader/Pre_Loader";
 import swal from "sweetalert";
 const MyBoard = () => {
   const history = useHistory();
@@ -15,7 +14,6 @@ const MyBoard = () => {
   const [showColumn, setShowColumn] = useState(false);
   const [isCardDragged, setIsCardDragged] = useState(false);
   const [isColumnDeleted, setIsColumnDeleted] = useState(false);
-  const [loader, setLoader] = useState(false);
   useEffect(() => {
     setIsColumnDeleted(false);
     setShowColumn(false);
