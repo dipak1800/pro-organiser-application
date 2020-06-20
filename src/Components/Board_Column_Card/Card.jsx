@@ -81,6 +81,7 @@ const Card = ({ columnId, isCardDragged }) => {
         .catch((err) => alert(err.message));
       setEditCardDetails(false);
       setShowModal(false);
+      setIsCardEdited(true);
     } else {
       if (!(taskDueDate < todayDate)) {
         axios

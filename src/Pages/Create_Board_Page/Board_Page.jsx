@@ -40,53 +40,56 @@ const Board_Page = () => {
   };
   return (
     <>
-    {loader ? <Pre_Loader/>:
-      <div className={Style.board_container}>
-        <h3 className={Style.createboard}>Create a Board</h3>
-        <form onSubmit={postDataToFirebase}>
-          <label htmlFor="board-name">
-            <h5>Enter a name for your board</h5>
-          </label>
-          <div className={Style.formDiv}>
-            <input
-              type="text"
-              placeholder="e.g Agile Sprint Board"
-              onChange={handleBoardName}
-              id="board_name"
-              value={boardName}
-              required
-            />
-          </div>
-          <label htmlFor="board-members">
-            <h5>Add your team members</h5>
-          </label>{" "}
-          <div className={Style.formDiv}>
-            <input
-              type="text"
-              placeholder="Add your team(seperated by commas)"
-              onChange={handleBoardMembers}
-              id="board_members"
-              value={boardMember}
-              required
-            />
-          </div>
-          <label htmlFor="board-type">
-            <h5>Enter the type of your board</h5>
-          </label>
-          <div className={Style.formDiv}>
-            <input
-              type="text"
-              placeholder="e.g Design UI(optional)"
-              onChange={handleBoardType}
-              id="board_type"
-              value={boardType}
-            />
-          </div>
-          <div>
-            <button type="submit">Create</button>
-          </div>
-        </form>
-      </div>}
+      {loader ? (
+        <Pre_Loader />
+      ) : (
+        <div className={Style.board_container}>
+          <h3 className={Style.createboard}>Create a Board</h3>
+          <form onSubmit={postDataToFirebase}>
+            <label htmlFor="board-name">
+              <h5>Enter a name for your board</h5>
+            </label>
+            <div className={Style.formDiv}>
+              <input
+                type="text"
+                placeholder="e.g Agile Sprint Board"
+                onChange={handleBoardName}
+                id="board_name"
+                value={boardName}
+                required
+              />
+            </div>
+            <label htmlFor="board-members">
+              <h5>Add your team members</h5>
+            </label>{" "}
+            <div className={Style.formDiv}>
+              <input
+                type="text"
+                placeholder="Add your team(seperated by commas)"
+                onChange={handleBoardMembers}
+                id="board_members"
+                value={boardMember}
+                required
+              />
+            </div>
+            <label htmlFor="board-type">
+              <h5>Enter the type of your board</h5>
+            </label>
+            <div className={Style.formDiv}>
+              <input
+                type="text"
+                placeholder="e.g Design UI(optional)"
+                onChange={handleBoardType}
+                id="board_type"
+                value={boardType}
+              />
+            </div>
+            <div>
+              <button type="submit">Create</button>
+            </div>
+          </form>
+        </div>
+      )}
     </>
   );
 };

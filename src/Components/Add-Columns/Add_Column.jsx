@@ -30,7 +30,7 @@ const Add_Column = ({ boardId, setShowColumn }) => {
       )
       .then((response) => {
         console.log(response.data);
-        setShowColumn(true);
+        setShowColumn(true); 
       })
       .catch((err) => {
         alert("something went wrong , " + err.message);
