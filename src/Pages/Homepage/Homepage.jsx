@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Fragment } from "react";
 import Style from "./Homepage.module.scss";
 import axios from "axios";
-import Pre_Loader from "../../Components/Pre-Loader/Pre_Loader";
+import PreLoader from "../../Components/Pre-Loader/Pre_Loader";
 import { Link } from "react-router-dom";
 const Homepage = () => {
   const [boardsData, setBoardsData] = useState({});
@@ -21,12 +21,12 @@ const Homepage = () => {
       });
   };
   useEffect(() => {
-    getBoardsData();
-  }, [showBoards]);
+                    getBoardsData();
+                  }, [showBoards]);
   return (
     <>
       {!loader ? (
-        <Pre_Loader />
+        <PreLoader />
       ) : (
         <div className={Style.Container}>
           <h3 className={Style.Boards}>Boards</h3>

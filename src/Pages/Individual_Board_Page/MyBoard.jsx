@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Style from "./MyBoard.module.scss";
 import axios from "axios";
 import AddColumn from "../../Components/Add-Columns/Add_Column";
-import Board_Column from "../../Components/Board_Column/Board_Column";
+import BoardColumn from "../../Components/Board_Column/Board_Column";
 import { useHistory, useParams, useLocation } from "react-router";
 import swal from "sweetalert";
 const MyBoard = () => {
@@ -86,7 +86,7 @@ const MyBoard = () => {
       <div className={Style.container}>
         {newColumn &&
           Object.entries(newColumn).map((column) => (
-            <Board_Column
+            <BoardColumn
               key={column[0]}
               columnName={column[1].columnName}
               columnId={column[0]}

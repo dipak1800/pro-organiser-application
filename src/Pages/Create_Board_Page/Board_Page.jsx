@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState,  } from "react";
 import axios from "axios";
 import Style from "./Board_Page.module.scss";
 import { useHistory } from "react-router-dom";
-import Pre_Loader from "../../Components/Pre-Loader/Pre_Loader";
+import PreLoader from "../../Components/Pre-Loader/Pre_Loader";
 
 const Board_Page = () => {
   const history = useHistory();
@@ -41,7 +41,7 @@ const Board_Page = () => {
   return (
     <>
       {loader ? (
-        <Pre_Loader />
+        <PreLoader />
       ) : (
         <div className={Style.board_container}>
           <h3 className={Style.createboard}>Create a Board</h3>

@@ -1,8 +1,8 @@
 import React from "react";
 import Style from "./NavBar.module.scss";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 // import { auth } from "../../Firebase/firebase.utils";
-import swal from "sweetalert";
+// import swal from "sweetalert";
 const NavBar = ({ currentUser }) => {
   // let handleSignOut = () => {
   //   swal({
