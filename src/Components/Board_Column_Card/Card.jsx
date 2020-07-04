@@ -4,12 +4,7 @@ import Style from "./Card.module.scss";
 import Modal from "../Modal/Modal";
 import Pic from "../../stone.jpg";
 import swal from "sweetalert";
-import {
-  withRouter,
-  // useHistory,
-  useParams,
-  useLocation,
-} from "react-router-dom";
+import { withRouter, useParams, useLocation } from "react-router-dom";
 const Card = ({ columnId, isCardDragged }) => {
   const location = useLocation();
   const { boardId, boardMembers } = location.state;
@@ -64,11 +59,11 @@ const Card = ({ columnId, isCardDragged }) => {
         .put(
           `https://pro-organizer-app-8f3bf.firebaseio.com/BoardData/${boardId}/board_column/${columnId}/card/${cardId}/.json`,
           {
-            taskTitle: taskTitle === "" ? cardDetailsTitle : taskTitle,
-            taskMembers: taskMembers === "" ? cardDetailsMembers : taskMembers,
+            taskTitle: taskTitle == "" ? cardDetailsTitle : taskTitle,
+            taskMembers: taskMembers == "" ? cardDetailsMembers : taskMembers,
             taskDescription:
-              taskDescription === "" ? cardDetailsDescription : taskDescription,
-            taskDueDate: taskDueDate === "" ? cardDetailsDueDate : taskDueDate,
+              taskDescription == "" ? cardDetailsDescription : taskDescription,
+            taskDueDate: taskDueDate == "" ? cardDetailsDueDate : taskDueDate,
           }
         )
         .then((res) =>

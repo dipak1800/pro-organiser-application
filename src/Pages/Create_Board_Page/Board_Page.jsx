@@ -1,4 +1,4 @@
-import React, { useState,  } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Style from "./Board_Page.module.scss";
 import { useHistory } from "react-router-dom";
@@ -54,7 +54,7 @@ const Board_Page = () => {
                 type="text"
                 placeholder="e.g Agile Sprint Board"
                 onChange={handleBoardName}
-                id="board_name"
+                id="name"
                 value={boardName}
                 required
               />
@@ -67,7 +67,7 @@ const Board_Page = () => {
                 type="text"
                 placeholder="Add your team(seperated by commas)"
                 onChange={handleBoardMembers}
-                id="board_members"
+                id="team"
                 value={boardMember}
                 required
               />
@@ -80,7 +80,7 @@ const Board_Page = () => {
                 type="text"
                 placeholder="e.g Design UI(optional)"
                 onChange={handleBoardType}
-                id="board_type"
+                id="type"
                 value={boardType}
               />
             </div>

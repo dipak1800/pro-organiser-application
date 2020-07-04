@@ -21,8 +21,8 @@ const Homepage = () => {
       });
   };
   useEffect(() => {
-                    getBoardsData();
-                  }, [showBoards]);
+    getBoardsData();
+  }, [showBoards]);
   return (
     <>
       {!loader ? (
