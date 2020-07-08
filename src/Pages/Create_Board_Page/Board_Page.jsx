@@ -85,7 +85,9 @@ const Board_Page = () => {
               />
             </div>
             <div>
-              <button type="submit">Create</button>
+              <button id="CreateBoard" type="submit">
+                Create
+              </button>
             </div>
           </form>
         </div>
